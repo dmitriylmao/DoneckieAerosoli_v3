@@ -1,0 +1,210 @@
+
+.unbounded {
+  font-family: "Unbounded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+
+.section-cont {
+    background-color: var(--page-bg);
+    margin-top: 70px;
+    font-family: "Unbounded", sans-serif;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between; /* Размещаем контакты и карту на противоположных сторонах */
+    align-items: center; /* Вертикально центрируем содержимое */
+}
+
+.container-cont {
+    display: flex;
+    justify-content: space-between; /* Размещаем контакты и карту */
+    width: 100%;
+}
+.map-container {
+    flex: 1; /* Занимает 50% доступной ширины */
+    margin-left: 0px; /* Отступ от текста */
+    display: flex; /* Для размещения iframe */
+    justify-content:center;
+	align-items: center; /* Растягиваем iframe по высоте контейнера */
+	opacity: 0; /* Начинаем с невидимости */
+    animation: fadeIn 0.5s ease-in-out forwards; /* Применяем анимацию */
+}
+
+.map-container iframe {
+    width: 80%; /* Занимает всю ширину контейнера */
+    height: 120%; /* Занимает всю высоту контейнера */
+}
+
+
+/* Анимация плавного появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.contacts-list {
+    padding-left: 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    flex: 1; /* Занимает 50% доступной ширины */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    color: var(--title-1);
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px;
+    opacity: 0; /* Начинаем с невидимости */
+    animation: fadeIn 0.5s ease-in-out forwards; /* Применяем анимацию */
+}
+
+/* Добавляем задержку для каждого элемента для эффекта последовательного появления */
+.contact-item:nth-child(1) { animation-delay: 0.1s; }
+.contact-item:nth-child(2) { animation-delay: 0.15s; }
+.contact-item:nth-child(3) { animation-delay: 0.2s; }
+.contact-item:nth-child(4) { animation-delay: 0.25s; }
+.contact-item:nth-child(5) { animation-delay: 0.3s; }
+.map-container { animation-delay: 0.4s; }
+
+.contact-item a {
+    color: var(--title-1);
+    text-decoration: none;
+    margin-left: 15px;
+	transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out; /* Переход для цвета и размера шрифта */
+	
+}
+.contact-item a:hover {
+    color: var(--text-animation);/* Цвет для темнения при наведении */
+	font-size:100.5%;
+}
+.icon {
+    width: 36px;
+    height: 36px;
+    filter: var(--icon-color);
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-height:620px){
+	.map-container iframe {
+		width: 80%; /* Занимает всю ширину контейнера */
+		height: 100%; /* Занимает всю высоту контейнера */
+	}
+}
+@media (max-width: 1100px){
+	.section-cont {
+		margin-top: 10%;
+        align-items: flex-start;
+		height: 100vh; /* Увеличиваем высоту на мобильных устройствах */
+    }
+	.container-cont {
+		
+        height: 90%;
+		flex-direction: column; /* Переключаем на колонку на мобильных устройствах */
+        align-items: center; /* Центрируем элементы по горизонтали */
+        /* Добавляем отступы по бокам для мобильных устройств */
+    }
+
+    .contacts-list {
+        width: 100%; /* Контактный список занимает всю ширину экрана */
+        margin-bottom: 20px; /* Добавляем отступ снизу для разделения с картой */
+    }
+
+    .map-container {
+        width: 90%; /* Карта занимает всю ширину экрана */
+		height: 30vh; 
+		margin-left: 0px;
+    }
+	.map-container iframe {
+		width: 80%; /* Занимает всю ширину контейнера */
+		height: 110%; /* Занимает всю высоту контейнера */
+	}
+}
+@media (max-width: 768px) {
+	.section-cont {
+		margin-top: 110px;
+        align-items: flex-start;
+		height: 120vh; /* Увеличиваем высоту на мобильных устройствах */
+    }
+    .container-cont {
+        flex-direction: column; /* Переключаем на колонку на мобильных устройствах */
+        align-items: center; /* Центрируем элементы по горизонтали */
+    }
+
+    .contacts-list {
+        width: 100%; /* Контактный список занимает всю ширину экрана */
+		padding-left: 10px;
+		padding-right: 10px;
+        
+    }
+
+    .map-container {
+        width: 100%; /* Карта занимает всю ширину экрана */
+        margin: 0; /* Убираем отступы слева и сверху */
+    }
+
+    .contact-item {
+        font-size: 23px; /* Уменьшаем размер шрифта для лучшего отображения */
+        overflow: hidden; /* or auto */
+    }
+
+    .icon {
+        width: 28px; /* Уменьшаем размер иконок для мобильных устройств */
+        height: 28px;
+    }
+}
+@media (max-width: 420px) {
+	.section-cont {
+		margin-top: 170px;
+        align-items: flex-start;
+		height: 100vh; /* Увеличиваем высоту на мобильных устройствах */
+    }
+    .container-cont {
+        flex-direction: column; /* Переключаем на колонку на мобильных устройствах */
+        align-items: center; /* Центрируем элементы по горизонтали */
+    }
+
+    .contacts-list {
+        width: 100%; /* Контактный список занимает всю ширину экрана */
+    }
+
+    .map-container {
+        width: 100%; /* Карта занимает всю ширину экрана */
+        margin: 0; 
+    }
+	.map-container iframe {
+		width: 80%; /* Занимает всю ширину контейнера */
+		height: 100%; /* Занимает всю высоту контейнера */
+	}
+    .contact-item {
+        font-size: 21px; /* Уменьшаем размер шрифта для лучшего отображения */
+    }
+
+    .icon {
+        width: 28px; /* Уменьшаем размер иконок для мобильных устройств */
+        height: 28px;
+    }
+}
+@media (max-width: 390px) {
+    .contact-item {
+        font-size: 18px; /* Уменьшаем размер шрифта для лучшего отображения */
+    }
+
+    .icon {
+        width: 24px; /* Уменьшаем размер иконок для мобильных устройств */
+        height: 24px;
+    }
+}
+

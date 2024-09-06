@@ -1,0 +1,185 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("./Raleway-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.carousel {
+    margin-top: 40px;
+    padding-top: 40px;
+    position: relative;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    background-color: var(--page-bg);
+    border-bottom: 1px solid var(--title-1);
+}
+
+.carousel-wrapper {
+    max-width: 100%;
+    display: flex;
+    height: 50%;
+    background-color: var(--page-bg);
+    overflow: hidden;
+}
+
+.carousel-content {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 50%;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: 50%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--page-bg);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-item img:hover {
+    transform: scale(1.05); /* Увеличение картинки при наведении на неё */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Добавление тени */
+}
+
+.carousel-item h2 {
+    font-family: "Raleway", sans-serif;
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: var(--title-1);
+}
+
+.carousel-item p {
+    font-family: "Raleway", sans-serif;
+    font-size: 1rem;
+    color: var(--title-1);
+}
+
+.carousel-item.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.carousel-button {
+    border: none;
+    color: var(--title-1);
+    cursor: pointer;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: background 0.3s;
+    will-change: transform, opacity; /* Подсказка браузеру оптимизировать анимацию */
+}
+
+/* Класс для активной анимации */
+.carousel-button.animate-prev {
+    animation: spinAndAppearPrev 0.4s ease-in-out forwards;
+}
+
+.carousel-button.animate-next {
+    animation: spinAndAppearNext 0.4s ease-in-out forwards;
+}
+
+/* Анимация барабана для кнопки prev (вращение влево) */
+@keyframes spinAndAppearPrev {
+    0% {
+        transform: translateY(-50%) translateX(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50%) translateX(-40%) scale(0.5);
+        opacity: 0;
+    }
+    51% {
+        transform: translateY(-50%) translateX(40%) scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-50%) translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Анимация барабана для кнопки next (вращение вправо) */
+@keyframes spinAndAppearNext {
+    0% {
+        transform: translateY(-50%) translateX(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50%) translateX(40%) scale(0.5);
+        opacity: 0;
+    }
+    51% {
+        transform: translateY(-50%) translateX(-40%) scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-50%) translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.carousel-button.prev {
+    left: 40px;
+}
+
+.carousel-button.next {
+    right: 40px;
+}
+
+@media (min-width: 768px) {
+    .carousel-item img {
+        max-width: 90%;
+    }
+}
+@media (max-width: 768px) {
+    .carousel-button {
+        background-color: var(--page-bg-transparent) ; /* Полупрозрачный темный фон */
+        
+    }
+}
+@media (max-width: 455px) {
+    .carousel-button {
+        color:black;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header {
+        padding: 0;
+    }
+
+    .carousel-button {
+        font-size: 2rem;
+        width: 60px;
+        height: 60px;
+    }
+}

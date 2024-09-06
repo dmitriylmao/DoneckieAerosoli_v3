@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cb0b8f70.css",
+    "main.js": "/static/js/main.522e56da.js",
+    "static/js/787.8b11e2ca.chunk.js": "/static/js/787.8b11e2ca.chunk.js",
+    "static/media/02-big.jpg": "/static/media/02-big.1ce25b7a134b8c6d8056.jpg",
+    "static/media/03-big.jpg": "/static/media/03-big.a7644e2ee82b5a397b5d.jpg",
+    "static/media/Raleway-Bold.ttf": "/static/media/Raleway-Bold.8e546283422c830c02dc.ttf",
+    "static/media/01-big.jpg": "/static/media/01-big.162263734f628468ffc8.jpg",
+    "static/media/Gropled-Bold.otf": "/static/media/Gropled-Bold.0564daccf95ed0e46b95.otf",
+    "static/media/02.jpg": "/static/media/02.f06ce60fb05d3a2bdb0d.jpg",
+    "static/media/03.jpg": "/static/media/03.ae14f1f5a7ec3aa96ecf.jpg",
+    "static/media/01.jpg": "/static/media/01.7534432b6f7b0f4a6e1b.jpg",
+    "static/media/sun.svg": "/static/media/sun.4d47962acd6c83e7e7aca592ec39545f.svg",
+    "static/media/moon.svg": "/static/media/moon.829f022e764b1d37016e364c5447dfdb.svg",
+    "static/media/vk.svg": "/static/media/vk.ffb489eeac4ab842395ffb315910ea7f.svg",
+    "index.html": "/index.html",
+    "main.cb0b8f70.css.map": "/static/css/main.cb0b8f70.css.map",
+    "main.522e56da.js.map": "/static/js/main.522e56da.js.map",
+    "787.8b11e2ca.chunk.js.map": "/static/js/787.8b11e2ca.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cb0b8f70.css",
+    "static/js/main.522e56da.js"
+  ]
+}

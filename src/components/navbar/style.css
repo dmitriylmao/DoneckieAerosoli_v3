@@ -1,0 +1,302 @@
+/* Шрифт */
+@font-face {	
+	font-family: "Gropled"; 
+	src: url("./Gropled-Bold.otf") format("truetype"); 
+}
+
+/* Основные стили навигации */
+/* Общие стили */
+.nav {
+    padding: 20px 0;
+    background-color: #000;
+    border-bottom: 1px solid #333;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Анимация навбара */
+.nav--visible {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.nav--hidden {
+	transform: translateY(-100%);
+	opacity: 0;
+}
+
+/* Стили для навбара */
+.nav-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 30px;
+    position: relative;
+}
+
+/* Кнопка темного режима */
+.btn-dark-mode {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	z-index: 20;
+	cursor: pointer;
+}
+
+/* Логотип */
+.logo {
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Gropled', sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+    z-index: 5;
+    position: absolute;
+    left: 0; /* На ПК логотип слева */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Анимация свечения и движения текста */
+@keyframes glow {
+	0% { text-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+	100% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); }
+}
+
+@keyframes slide-up-blur {
+	0% { transform: translateY(0); opacity: 1; filter: blur(0); }
+	100% { transform: translateY(-100%); opacity: 0; filter: blur(3px); }
+}
+
+@keyframes slide-down-blur {
+	0% { transform: translateY(100%); opacity: 0; filter: blur(3px); }
+	100% { transform: translateY(0); opacity: 1; filter: blur(0); }
+}
+
+/* Текст перед анимацией */
+.logo::before,
+.logo::after {
+    content: 'Донецкие аэрозоли';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    pointer-events: none;
+}
+
+.logo::before {
+	opacity: 1;
+	transform: translateY(0);
+	filter: blur(3px);
+}
+
+.logo::after {
+	transform: translateY(100%);
+	opacity: 0;
+	filter: blur(0);
+}
+
+/* Эффекты при наведении */
+.logo:hover::before {
+	animation: slide-up-blur 0.5s cubic-bezier(0.42, 0, 0.58, 1) forwards, glow 0.3s ease-out;
+}
+
+.logo:hover::after {
+	animation: slide-down-blur 0.5s cubic-bezier(0.42, 0, 0.58, 1) forwards;
+}
+
+.logo:not(:hover)::before {
+	animation: slide-down-blur 0s cubic-bezier(0.42, 0, 0.58, 1) forwards, glow 0.3s ease-out;
+}
+
+.logo:not(:hover)::after {
+	animation: slide-up-blur 0s cubic-bezier(0.42, 0, 0.58, 1) forwards;
+}
+
+/* Стили для навигационных ссылок */
+/* Стили списка навигации */
+.nav-list {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+	font-family: "Gropled"; 
+}
+
+.nav-list__link {
+    color: #fff;
+    transition: opacity 0.2s ease-in;
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-list__link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-list__link:hover::before,
+.nav-list__link--active::before {
+    width: 100%;
+}
+
+/* Мобильные стили */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1010;
+    position: relative;
+    width: 30px; /* Установите ширину кнопки */
+    height: 30px; /* Установите высоту кнопки */
+	padding-left: 15px;
+}
+
+/* Иконка бургер-кнопки */
+.mobile-menu-btn .menu-icon {
+    display: flex;
+    width: 25px; /* Ширина линии бургер-кнопки */
+    height: 2px; /* Высота линии бургер-кнопки */
+    background-color: #fff;
+    position: fixed;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Линия сверху */
+.mobile-menu-btn .menu-icon::before,
+.mobile-menu-btn .menu-icon::after {
+    content: '';
+    position: absolute;
+    width: 25px; /* Ширина линии бургер-кнопки */
+    height: 2px; /* Высота линии бургер-кнопки */
+    background-color: #fff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu-btn .menu-icon::before {
+    transform: translateY(-8px);
+}
+
+.mobile-menu-btn .menu-icon::after {
+    transform: translateY(8px);
+}
+
+/* Анимация для крестика */
+.mobile-menu-btn.open .menu-icon {
+    background-color: transparent;
+}
+
+.mobile-menu-btn.open .menu-icon::before {
+    transform: rotate(45deg) translate(0px, 0px);
+}
+
+.mobile-menu-btn.open .menu-icon::after {
+    transform: rotate(-45deg) translate(0px, 0px);
+}
+
+/* Стили для мобильного меню */
+@media (max-width: 768px) {
+    .nav-row {
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .logo {
+        
+		font-size: 30px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%); /* На мобильных устройствах логотип по центру */
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center; /* Центрирование элементов списка */
+        position: absolute;
+        top: 100%;
+        right: 50%;
+        background-color: #000;
+        width: 150%; /* Немного меньше ширины экрана */
+        max-width: 150%; /* Максимальная ширина меню */
+        padding: 25px;
+        transform: translate(50%, -100%);
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.6, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.6, 1), visibility 0.6s cubic-bezier(0.4, 0, 0.6, 1);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Добавляем тень для эффекта всплытия */
+        border-radius: 8px; /* Закругленные углы меню */
+        font-family: "Gropled"; 
+    }
+
+    .nav-list--open {
+        transform: translate(50%, 0);
+        opacity: 1;
+        visibility: visible;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.6, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1), visibility 0.6s cubic-bezier(0.4, 0, 0.6, 1);
+
+    }
+
+    .nav-list--closed {
+        transform: translate(50%, -100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.6, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.6, 1), visibility 0.6s cubic-bezier(0.4, 0, 0.6, 1);
+    }
+
+    .nav-list__item {
+        margin-bottom: 25px;
+        font-size:20px;
+    }
+
+    .nav-list__item:last-child {
+        margin-bottom: 0;
+    }
+}
+@media (max-width: 420px) {
+    .nav-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        position: relative;
+        left: auto;
+        transform: none;
+        margin-bottom: 10px; /* Добавляем отступ снизу для логотипа */
+    }
+
+    .mobile-menu-btn {
+        position: relative;
+        left: auto;
+        transform: none;
+        margin-bottom: 10px; /* Отступ снизу для кнопки */
+        margin-top:15px;
+        left:-10px;
+
+    }
+
+    .nav-list {
+        width: 150%; /* Ширина меню по ширине экрана */
+        padding: 15px; /* Сокращаем padding, чтобы лучше умещалось */
+    }
+}

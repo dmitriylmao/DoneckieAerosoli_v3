@@ -1,0 +1,210 @@
+body {
+    font-family: 'Raleway', sans-serif; /* Устанавливаем шрифт Raleway для всего текста на странице */
+}
+.section {
+    padding: 20px 0;
+    margin-top: 80px; /* Отступ сверху для обычного экрана */
+}
+.divider {
+    border: none;
+    border-top: 1px solid var(--title-1); /* Цвет и стиль линии */
+    margin-top:65px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.project-description {
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--text-color);
+    text-align: center; /* Выравнивание по центру, если это необходимо */
+    margin-bottom: 80px; /* Отступ снизу для разделения с другими элементами */
+    margin-top: -70px;
+}
+.title-1 {
+    margin-bottom: 60px;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--title-1);
+    font-family: 'Raleway';
+    text-align: center;
+}
+
+.project-details {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    flex-direction: row; /* Сохраняем горизонтальное направление */
+}
+
+.project-details__cover {
+    max-width: 40%;
+    border-radius: 20px;
+}
+
+.project-details__desc {
+    max-width: 50%;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-color);
+    text-align: left;
+}
+
+.project-features {
+    list-style-type: disc;
+    margin: 0px 0;
+    padding-left: 20px;
+    font-size: 20px; /* Увеличиваем размер шрифта для читаемости */
+    text-align: left; /* Выравниваем текст по левому краю */
+}
+
+.project-features li {
+    margin-bottom: 15px;
+}
+
+.assortment-title {
+    margin-top: 50px;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--title-1);
+    text-align: center;
+}
+
+/* Оформление списка ассортимента */
+.project-assortment {
+    list-style: none; /* Убираем стандартные маркеры */
+    padding: 0;
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    
+}
+
+.project-assortment li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+    background-color: var(--background-color); /* Цвет фона для каждого элемента */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень для глубины */
+    color: var(--text-color);
+    font-size: 20px; /* Увеличиваем размер шрифта */
+    line-height: 1.4;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center; /* Выравнивание текста по центру */
+    border: 0.5px solid white; /* Задайте нужный цвет для бордера */
+}
+
+.project-assortment li::before {
+    content: ""; /* Используем символ в качестве маркера */
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: var(--title-1); /* Цвет маркера */
+}
+
+.project-assortment li:hover {
+    transform: translateY(-5px); /* Поднимаем элемент при наведении */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Усиливаем тень при наведении */
+}
+
+
+.project-specs {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family:Arial, Helvetica, sans-serif;
+   
+}
+
+.project-specs td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 20px; /* Увеличиваем размер шрифта */
+    text-align: center; /* Выравнивание текста по горизонтали */
+    vertical-align: middle; /* Выравнивание текста по вертикали */
+}
+
+
+/* Заголовок таблицы характеристик */
+.specs-title {
+    margin-top: 50px;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--title-1);
+    text-align: center;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.btn-outline-3 {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: 1px solid var(--title-1);
+    border-radius: 10px;
+    color: var(--title-1);
+    text-decoration: none;
+    background: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Raleway';
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.btn-outline-3:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+
+@media (max-width: 768px) {
+    .section {
+        margin-top: 100px; /* Увеличенный отступ сверху для экранов меньше 768px */
+    }
+    .project-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-details__cover {
+        max-width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .project-details__desc {
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .title-1 {
+        font-size: 50px;
+    }
+
+    .project-assortment,
+    .project-specs {
+        text-align: center;
+    }
+
+    .project-assortment {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    .project-specs td {
+        font-size: 16px; /* Уменьшаем размер шрифта для мобильных устройств */
+    }
+}
