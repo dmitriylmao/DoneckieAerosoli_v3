@@ -5,7 +5,7 @@ const Projects = () => {
 	return (
 		<main className="section">
 			<div className="container">
-				<h2 className="title-1">Продукция</h2>
+				<h2 className="title-projects">Продукция</h2>
 				<ul className="projects">
 					{projects.map((project, index) => {
 						return (

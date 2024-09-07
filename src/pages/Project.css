@@ -1,5 +1,6 @@
+
 body {
-    font-family: 'Raleway', sans-serif; /* Устанавливаем шрифт Raleway для всего текста на странице */
+    font-family: "Unbounded", sans-serif;
 }
 .section {
     padding: 20px 0;
@@ -10,7 +11,6 @@ body {
     border-top: 1px solid var(--title-1); /* Цвет и стиль линии */
     margin-top:65px;
 }
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -24,16 +24,22 @@ body {
     margin-bottom: 80px; /* Отступ снизу для разделения с другими элементами */
     margin-top: -70px;
 }
-.title-1 {
+.title-projects {
+    margin-top:7px;
     margin-bottom: 60px;
-    font-size: 70px;
+    font-size: 50px;
     font-weight: 700;
-    line-height: 1.3;
     color: var(--title-1);
-    font-family: 'Raleway';
     text-align: center;
 }
-
+.title-1{
+    margin-top:22px;
+    font-family:"Unbounded", sans-serif;
+    font-weight:500;
+}
+.project-description{
+    font-weight: 500;
+}
 .project-details {
     display: flex;
     align-items: flex-start;
@@ -49,17 +55,20 @@ body {
 
 .project-details__desc {
     max-width: 50%;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.6;
     color: var(--text-color);
     text-align: left;
+    
+    
 }
 
 .project-features {
     list-style-type: disc;
     margin: 0px 0;
     padding-left: 20px;
-    font-size: 20px; /* Увеличиваем размер шрифта для читаемости */
+    font-size: 21px;    
+    font-weight: 400;
     text-align: left; /* Выравниваем текст по левому краю */
 }
 
@@ -70,7 +79,7 @@ body {
 .assortment-title {
     margin-top: 50px;
     margin-bottom: 25px;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 700;
     color: var(--title-1);
     text-align: center;
@@ -82,8 +91,9 @@ body {
     padding: 0;
     margin: 20px 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 15px;
+   
     
 }
 
@@ -92,7 +102,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 20px;
+    padding: 20px ;
     background-color: var(--background-color); /* Цвет фона для каждого элемента */
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень для глубины */
@@ -102,6 +112,7 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center; /* Выравнивание текста по центру */
     border: 0.5px solid white; /* Задайте нужный цвет для бордера */
+    
 }
 
 .project-assortment li::before {
@@ -124,24 +135,29 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    font-family:Arial, Helvetica, sans-serif;
-   
+    overflow-x: auto; /* Позволяем таблице прокручиваться по горизонтали */
+    display: block; /* Превращаем таблицу в блок для адаптации к экрану */
+    white-space: nowrap; /* Запрещаем перенос текста внутри ячеек */
 }
 
+/* Ячейки должны автоматически сжиматься */
 .project-specs td {
     padding: 10px;
-    border: 1px solid #ccc;
-    font-size: 20px; /* Увеличиваем размер шрифта */
-    text-align: center; /* Выравнивание текста по горизонтали */
-    vertical-align: middle; /* Выравнивание текста по вертикали */
+    border: 1px solid var(--title-1);
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: normal; /* Разрешаем перенос текста внутри ячеек */
+    word-wrap: break-word; /* Переносим длинные слова */
 }
-
-
+.specs-name{
+    font-weight: 600;
+}
 /* Заголовок таблицы характеристик */
 .specs-title {
     margin-top: 50px;
     margin-bottom: 25px;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 700;
     color: var(--title-1);
     text-align: center;
@@ -152,26 +168,65 @@ body {
 }
 
 .btn-outline-3 {
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 20px;
-    border: 1px solid var(--title-1);
-    border-radius: 10px;
-    color: var(--title-1);
-    text-decoration: none;
-    background: transparent;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Raleway';
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 25px;
+    padding: 12px 24px;
+	font-size: 20px;
+    font-weight: 600;
+	color: #000;
+	background-color: var(--page-bg);
+	border: 1px solid var(--title-1);
+	border-radius: 8px;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	transition: color 0.5s ease;
+	font-family: "Unbounded", sans-serif;
+	color:var(--title-1);
+}
+
+.btn-outline-3::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 20px;
+	height: 20px;
+	background-color: var(--title-1);
+	
+	z-index: -1;
+	transition: transform 0.5s ease;
+	transform: translate(-50%, -50%) scale(0);
+	border-radius: 50%;
+}
+
+.btn-outline-3:hover::before {
+	transform: translate(-50%, -50%) scale(100);
 }
 
 .btn-outline-3:hover {
-    background-color: #333;
-    color: #fff;
+	color:var(--page-bg);
 }
-
+@media (max-width:1100px) {
+    .project-features{
+        font-size: 19px;
+    }
+    .assortment-title{
+        font-size:26px;
+    }
+    .project-assortment li{
+        font-size:18px;
+    }
+    .specs-title{
+        font-size:26px;
+    }
+    .project-specs td{
+        font-size:18px;
+    }
+    .btn-outline-3{
+        font-size:20px;
+    }
+    
+}
 
 @media (max-width: 768px) {
     .section {
@@ -192,19 +247,69 @@ body {
         text-align: center;
     }
 
-    .title-1 {
-        font-size: 50px;
+    .title-projects {
+        margin-top: 20px;
+        margin-bottom:40px;
+        font-size: 40px;
     }
-
+    .title-1{
+        font-size:60px;
+    }
+    
     .project-assortment,
     .project-specs {
         text-align: center;
     }
 
     .project-assortment {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     }
     .project-specs td {
         font-size: 16px; /* Уменьшаем размер шрифта для мобильных устройств */
+    }
+}
+@media (max-width:620px){
+    .section{
+        margin-top:60px;
+    }
+    .title-1{
+        margin-bottom: 0px;
+        font-size: 50px;
+    }
+    .project-description{
+        margin-top:-2%;
+        font-size:16px;
+        margin-bottom:40px;
+    }
+}
+@media (max-width:420px){
+    .section{
+        margin-top:130px;
+    }
+    .title-1{
+        margin-bottom: 0px;
+        font-size: 40px;
+    }
+    .project-description{
+        font-size:15px;
+        margin-bottom:40px;
+    }
+    .project-features{
+        font-size: 16px;
+    }
+    .assortment-title{
+        font-size:23px;
+    }
+    .project-assortment li{
+        font-size:15px;
+    }
+    .specs-title{
+        font-size:23px;
+    }
+    .project-specs td{
+        font-size:15px;
+    }
+    .btn-outline-3{
+        font-size:17px;
     }
 }

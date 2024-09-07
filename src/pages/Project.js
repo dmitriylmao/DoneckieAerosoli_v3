@@ -51,7 +51,7 @@ const Project = () => {
                             <tbody>
                                 {project.specs.map((spec, index) => (
                                     <tr key={index}>
-                                        <td>{spec.name}</td>
+                                        <td className="specs-name">{spec.name}</td>
                                         <td>{spec.value1}</td>
                                         {spec.value2 && <td>{spec.value2}</td>}
                                     </tr>

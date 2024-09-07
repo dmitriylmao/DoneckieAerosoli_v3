@@ -58,6 +58,7 @@ body {
 	/* Light mode */
 	background-color: var(--page-bg);
 	color: var(--text-color);
+	overflow-x: hidden;
 }
 
 #root {
@@ -148,6 +149,7 @@ body {
 	align-items: center; /* Вертикальное центрирование */
 	height: auto; /* Высота контейнера (в данном случае на всю высоту экрана) */
 	padding-top: 50px;
+	margin-bottom: 65px;
 }
 
 /*.btn-outline {
@@ -179,7 +181,8 @@ body {
 */
 .btn-outline {
 	padding: 12px 24px;
-	font-size: 18px;
+	font-size: 20px;
+	font-weight: 500;
 	color: #000;
 	background-color: var(--page-bg);
 	border: 1px solid var(--title-1);
@@ -188,9 +191,8 @@ body {
 	position: relative;
 	overflow: hidden;
 	z-index: 1;
-	transition: color 0.3s ease;
-	font-family: 'Raleway';
-	font-size: 16px;
+	transition: color 0.5s ease;
+	font-family: "Unbounded", sans-serif;
 	color:var(--title-1);
 }
 
@@ -201,10 +203,10 @@ body {
 	left: 50%;
 	width: 20px;
 	height: 20px;
-	background-color: #333;
+	background-color: var(--title-1);
 	
 	z-index: -1;
-	transition: transform 0.2s ease;
+	transition: transform 0.5s ease;
 	transform: translate(-50%, -50%) scale(0);
 	border-radius: 50%;
 }
@@ -214,7 +216,7 @@ body {
 }
 
 .btn-outline:hover {
-	color: #fff;
+	color:var(--page-bg);
 }
 
 

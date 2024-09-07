@@ -1,8 +1,5 @@
-@font-face {
-    font-family: "Raleway";
-    src: url("./Raleway-Bold.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
+body {
+    font-family: "Unbounded", sans-serif;
 }
 
 .header {
@@ -44,6 +41,7 @@
     height: 50%;
     box-sizing: border-box;
     padding: 20px;
+    margin-bottom: 16px;
     text-align: center;
     background-color: var(--page-bg);
     opacity: 0;
@@ -65,16 +63,18 @@
 }
 
 .carousel-item h2 {
-    font-family: "Raleway", sans-serif;
-    font-size: 1.5rem;
+    font-family: "Unbounded", sans-serif;
+    font-size: 1.8rem;
     margin: 10px 0;
     color: var(--title-1);
+    font-weight:500;
 }
 
 .carousel-item p {
-    font-family: "Raleway", sans-serif;
+    font-family: "Unbounded", sans-serif;
     font-size: 1rem;
     color: var(--title-1);
+    font-weight:400;
 }
 
 .carousel-item.active {
@@ -181,5 +181,17 @@
         font-size: 2rem;
         width: 60px;
         height: 60px;
+    }
+}
+@media (max-width:420px){
+    .carousel{
+        margin-top: 110px;
+    }
+    .carousel-item h2 {
+        font-size:1.6rem;
+    }
+    
+    .carousel-item p {
+        font-size: 0.8rem;
     }
 }
